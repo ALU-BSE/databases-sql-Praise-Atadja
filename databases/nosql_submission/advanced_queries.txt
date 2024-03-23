@@ -31,23 +31,23 @@ db.Products.find({ listedBy: "ObjectId" });
 // Find the total amount spent by a specific user
 db.Transactions.aggregate([
   {
-    $match: { buyerId: ObjectId('65ff1ac21db2aeb1d9e53d9f') } // Match transactions by the specific user
+    $match: { buyerId: "ObjectId" }
   },
   {
     $lookup: {
-      from: "Products", // Look up the Products collection
+      from: "Products",
       localField: "productId",
       foreignField: "_id",
       as: "product"
     }
   },
   {
-    $unwind: "$product" // Unwind the product array
+    $unwind: "$product"
   },
   {
     $group: {
-      _id: "$buyerId", // Group by buyerId (user ObjectId)
-      totalAmountSpent: { $sum: { $multiply: ["$product.price", "$quantity"] } } // Calculate the total amount spent
+      _id: "$buyerId",
+      totalAmountSpent: { $sum: { $multiply: ["$product.price", "$quantity"] } }
     }
   }
 ]);
