@@ -27,10 +27,10 @@ The database schema consists of three main collections: Users, Products, and Tra
 An index is created on the name field of the Users collection to speed up queries related to user names.
 
 ## Sample Data
-Here's some sample data inserted into the collections:
+There's some sample data inserted into the collections:
 
 ## MongoDB Queries
-Here are some MongoDB queries for performing advanced tasks:
+There are some MongoDB queries for performing advanced tasks:
 
 ### Count the number of products listed by each user
 ```mongodb
